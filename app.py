@@ -42,11 +42,11 @@ def result():
     path = os.path.join('static', img_filename)
     #print(img_filename)
 
-    url1 = 'https://drive.google.com/uc?export=download&confirm=pbef&id=1-yqDSi6kZ-aOuOJQdhvVdis6W-sIMT10'
-    output1 = 'models/model_final_1.pth'
-    url2 = 'https://drive.google.com/uc?export=download&confirm=pbef&id=1-HEhFAJzFSveKSLhxdV80IZG96S9bNHT'
-    
-    output2 = 'models/model_final_2.pth'
+    # url1 = 'https://drive.google.com/uc?export=download&confirm=pbef&id=1-yqDSi6kZ-aOuOJQdhvVdis6W-sIMT10'
+    url1 = 'https://drive.google.com/uc?id=1hOTFK3LBg9PpTwpsCNaDzTxQHR78wwot'
+    output1 = 'models/model2/model_final.pth'
+    url2 = 'https://drive.google.com/uc?id=1f6eeoLtmk41C1LzivDkNYZDjtIFUhPkw'  
+    output2 = 'models/model3/model_final.pth'
     if not os.path.exists('models'):
         os.makedirs('models')
     

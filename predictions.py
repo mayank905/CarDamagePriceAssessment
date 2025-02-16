@@ -43,7 +43,7 @@ def pred_price(image_path):
 
     cfg.MODEL.DEVICE = "cpu"
 
-    cfg.MODEL.WEIGHTS = os.path.join('models', "model_final_1.pth")
+    cfg.MODEL.WEIGHTS = os.path.join('models','model2',"model_final.pth")
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.57  # set a custom testing threshold for this model
     #cfg.DATASETS.TEST = ("damage_type_val")
     predictor1 = DefaultPredictor(cfg)
@@ -73,7 +73,7 @@ def pred_price(image_path):
 
     cfg_2.MODEL.DEVICE = "cpu"
 
-    cfg_2.MODEL.WEIGHTS = os.path.join('models', "model_final_2.pth")
+    cfg_2.MODEL.WEIGHTS = os.path.join('models','model3',"model_final.pth")
     cfg_2.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.70  # set a custom testing threshold for this model
     #cfg.DATASETS.TEST = ("car_part_val")
     predictor2 = DefaultPredictor(cfg_2)

@@ -1,8 +1,6 @@
 # Damage Detection and Price Estimation of cars.
 This project detects damages on cars using derectron2 and also returns the estimated repair cost. The model is deployed using `flask` and can be executed in local host server.
 
-Link to my blog that contains explaination: https://medium.com/@abhishekchand62/damage-detection-of-cars-and-repair-cost-estimating-86df79544f0a
-
 ## Steps to run
 Run the below commands in the terminal step by step
 
@@ -16,7 +14,7 @@ $conda activate <env_name>
 **Clone this repository**
 
 ```
-$git clone https://github.com/AChand20/damage-detection-2.git
+$git clone https://github.com/ManishDetective/VehicleDamagePriceAssessment.git
 $cd damage-detection-2
 ```
 **Install dependencies**

@@ -14,7 +14,7 @@ $conda activate <env_name>
 **Clone this repository**
 
 ```
-$git clone https://github.com/ManishDetective/VehicleDamagePriceAssessment.git
+$git clone https://github.com/mayank905/CarDamagePriceAssessment.git
 $cd damage-detection-2
 ```
 **Install dependencies**

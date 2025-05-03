@@ -2,22 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Damage Detection Results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    {%if img %}
-    <p>Uploaded Image</p>
-    <img src="{{ url_for('static', filename = img) }}" width="256" height="256">
-
-    <p>Damages Detected</p>
-    {% if pri %}
-    <img src="{{ url_for('static', filename = pre) }}" width="256" height="256">
-
-    
-    <p>Total Repair Cost = ${{pri}}</p>
-    {% endif %}
-    {% endif %}
+    <div class="container">
+        <header>
+            <h1>Results</h1>
+            <p class="subtitle">Detected damaged parts, seriousness, and estimated repair cost.</p>
+        </header>
+        <main>
+            {% if img %}
+                <div class="image-section">
+                    <h2>Uploaded Image</h2>
+                    <img src="{{ url_for('static', filename=img) }}" alt="Uploaded Car Image" class="result-image">
+                </div>
+                <div class="results-section">
+                    <h2>Damages Detected</h2>
+                    <img src="{{ url_for('static', filename=pre) }}" alt="Uploaded Car Image" class="result-image">
+                    <ul class="damage-list">
+                        {% for d in damages %}
+                            <li>
+                                <strong>{{ d.part|capitalize }}</strong> - {{ d.severity|capitalize }} damage
+                                <span class="cost">₹{{ d.cost }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if pri %}
+                        <div class="total-cost">
+                            <h3>Total Estimated Repair Cost</h3>
+                            <span class="cost-total">₹{{ pri }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p>No image uploaded.</p>
+            {% endif %}
+        </main>
+        <footer>
+            <p class="footer-text">Powered by AI & Detectron2 | <span style="opacity:0.7;">2025</span></p>
+        </footer>
+    </div>
 </body>
 </html>

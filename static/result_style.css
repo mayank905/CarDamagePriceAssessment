@@ -1,0 +1,106 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1FB6DB 0%, #009EE3 100%);
+    min-height: 100vh;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(31, 182, 219, 0.18);
+    padding: 2.5rem 2rem 1.5rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #009EE3;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.image-section {
+    margin-bottom: 2rem;
+}
+
+.result-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,158,227,0.15);
+    margin-top: 0.5rem;
+}
+
+.results-section {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.damage-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem 0;
+}
+
+.damage-list li {
+    background: #e6f7fb;
+    margin-bottom: 0.7rem;
+    padding: 0.8rem 1rem;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.07rem;
+}
+
+.cost {
+    color: #009EE3;
+    font-weight: 600;
+}
+
+.total-cost {
+    background: #009EE3;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    font-size: 1.18rem;
+}
+
+.cost-total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+.footer-text {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #555;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 96vw;
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+    }
+    header h1 {
+        font-size: 1.4rem;
+    }
+    .results-section {
+        max-width: 96vw;
+    }
+}

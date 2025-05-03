@@ -1,39 +1,46 @@
 from flask import Flask, render_template, request, url_for
 import os, shutil
-from predictions import pred_price
+from prediction2 import pred_price
 import gdown
 
 app = Flask(__name__) 
 
 @app.route("/")
 def hello():   
-
+    
     folder = 'static'
-    if os.path.exists(folder):
-        for filename in os.listdir(folder):
-            file_path = os.path.join(folder, filename)
-            try:
-                if os.path.isfile(file_path) or os.path.islink(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    shutil.rmtree(file_path)
-            except Exception as e:
-                print('Failed to delete %s. Reason: %s' % (file_path, e))
-    else:
+    if not os.path.exists(folder):
         os.makedirs(folder)
+    # if os.path.exists(folder):
+    #     for filename in os.listdir(folder):
+    #         file_path = os.path.join(folder, filename)
+    #         try:
+    #             if os.path.isfile(file_path) or os.path.islink(file_path):
+    #                 os.unlink(file_path)
+    #             elif os.path.isdir(file_path):
+    #                 shutil.rmtree(file_path)
+    #         except Exception as e:
+    #             print('Failed to delete %s. Reason: %s' % (file_path, e))
+    # else:
+    #     os.makedirs(folder)
 
     return render_template("index.html")
 
 @app.route("/loading", methods = ['GET','POST'])
 def Upload():
     if request.method == 'POST':
+        if 'fileToUpload' not in request.files:
+            return "No file part in the request", 400  # Return a 400 error if no file is uploaded
         image = request.files["fileToUpload"]
+        if image.filename == '':
+            return "No selected file", 400  # Return a 400 error if no file is selected
         path = os.path.join('static', image.filename)
         print(path)
         image.save(path)        
 
         return render_template("loading.html", img = image.filename)
-
+    
+    return "Invalid request method", 405  # Return a 405 error if the method is not POST
 @app.route("/processing",  methods = ['GET','POST'])
 def result():
     #img_filename = str(request.args.to_dict(flat=False)['data1'][0])

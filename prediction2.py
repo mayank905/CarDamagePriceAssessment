@@ -49,7 +49,7 @@ def pred_price(image_path):
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     ima = Image.fromarray(out.get_image()[:, :, ::-1])
     
-    save_path = 'pred_'+image_path.split('\\')[1]
+    save_path = 'pred_'+image_path.split('\\')[-1]
     ima.save('static/'+save_path)
 
     #car_part model
@@ -169,5 +169,5 @@ def pred_price(image_path):
 
 
 if  __name__ == '__main__':
-    price,path = pred_price('static/11.jpg')
+    price,path = pred_price('static\\11.jpg')
     print(price)
